@@ -1,18 +1,52 @@
 public class Main {
     public static void main(String[] args) {
         boolean[][] schedule = new boolean[8][60];
+        for (int i = 0; i < schedule.length; i++) {
+            for(int j = 0; j < schedule[i].length; j++) {
+                schedule[i][j] = false;
+            }
+        }
 
-        for (int i = 0; i < 15; i++) schedule[1][i] = true;
+        AppointmentBook book = new AppointmentBook(schedule);
+        
+        for (int i = 10; i <= 14; i++) {
+            book.schedule[1][i] = true;
+        }
+        for (int i = 30; i <= 44; i++) {
+            book.schedule[1][i] = true;
+        }
+        for (int i = 50; i <= 59; i++) {
+            book.schedule[1][i] = true;
+        }
 
+        schedule = new boolean[8][60];
+        for (int i = 0; i < schedule.length; i++) {
+            for (int j = 0; j < schedule[i].length; j++) {
+                schedule[i][j] = false;
+            }
+        }     
 
-        AppointmentBook a = new AppointmentBook(schedule);
+      //  System.out.println(book.findFreeBlock(2, 15));
+      //  book.printPeriod(2);
 
-       
+        for(int p = 1; p <+ 3; p++) {
+            for (int i = 10; i <+ 14; i++) {
+                schedule[p][i] = true;
+            }
+            for (int i = 30; i <= 44; i++) {
+                schedule[p][i] = true;
+            }
+            for (int i = 50; i <= 59; i++) {
+                schedule[p][i] = true;
+            }
+        }
 
-        //a.printPeriod(2);
+        book = new AppointmentBook(schedule);
 
-        //a.findFreeBlock(2, 15);
-        System.out.println(a.findFreeBlock(2, 15));
-
+        book.printPeriod(2);
+        book.printPeriod(3);
+        book.printPeriod(4);
+        System.out.println(book.makeAppointment(2,4,15));
     }
 }
+
