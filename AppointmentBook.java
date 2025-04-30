@@ -41,7 +41,7 @@ public class AppointmentBook {
         //return false;
         for(int period = startPeriod; period <= endPeriod; period++) {
             int start = findFreeBlock(period, duration);
-            if (start != -1) {
+            if (start > -1) {
                 reserveBlock(period, start, duration);
                 return true;
             }
